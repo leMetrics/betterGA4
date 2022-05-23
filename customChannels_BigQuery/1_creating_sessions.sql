@@ -25,6 +25,7 @@ DECLARE d date default "2021-01-31";
                 lower((select value.string_value from unnest(event_params) where key = 'source')) as source,
                 lower((select value.string_value from unnest(event_params) where key = 'medium')) as medium,
                 lower((select value.string_value from unnest(event_params) where key = 'campaign')) as campaign,
+                lower((select value.string_value from unnest(event_params) where key = 'name')) as name,
                 (select value.int_value from unnest(event_params) where key = 'entrances') as is_entrance,
                 (select value.int_value from unnest(event_params) where key = 'ignore_referrer') as ignore_referrer
             ), null) 
